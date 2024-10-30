@@ -8,7 +8,7 @@ interface LGProps {
   onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: LGProps) {
+function ListGroup({ items, heading, onSelectItem }: LGProps) {
   //hook
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -27,6 +27,7 @@ function ListGroup({ items, heading }: LGProps) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
